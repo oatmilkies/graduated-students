@@ -1,3 +1,4 @@
+//Destructuring practice
 const students = [
   {
     name: "Ankit",
@@ -73,6 +74,20 @@ const students = [
   },
 ];
 
+//Returns an array of strings indicating whether a student has graduated or not
 const graduatedStudents = (listOfStudents) => {
-//Implement function
+  let statusList = [];
+  
+  listOfStudents.forEach(student => {
+    const { name, grade, email, phone, graduated } = student;
+    if (graduated === true) {
+      statusList.push(`${name} has graduated and their diploma will be sent to ${email}.`)
+    } else {
+      statusList.push(`${name} has not graduated yet, no diploma will be sent.`)
+    }
+  });
+
+  return statusList;
 };
+
+console.log(graduatedStudents(students));
